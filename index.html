@@ -1,0 +1,161 @@
+<!DOCTYPE html>    <!--declares this is an HTML5 document-->
+<html lang="en"> <!--declares the language of the document is English-->
+<head><!--All things that happen in the background where the user can't see but helps the website-->
+    <meta charset="UTF-8"> <!--supports all characters including emoji and symbols-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--makes the site responsive on mobile devices-->
+    <title>Cropwise AI Site</title> <!--sets the tab title of the document on the browser-->
+    <link rel="stylesheet" href="styles.css"> <!--links to my external CSS file-->
+    <script src="script.js" defer></script> <!--links to my external JavaScript file, defer ensures it loads after the HTML is analyzed by the browser-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!--links to the favicon for the site .It is a small icon in the browser tab-->
+</head>
+<body><!--All things that the user can see and interact with and where all the content goes into-->
+    <! -- 1.Hero section -->
+    <header class="hero"><!--will be styled later in my CSS-->
+        <h1>Welcome to Cropwise AI</h1><!--Main heading of the site-->
+        <p>Empowering farmers through intelligent insights.</p><!--A tagline that quickly communicatesthe mission-->
+        <a href ="about" class="cta-button">Get started</a>
+    </header>    
+    <! -- 2.About section -->
+    <section id="about"class="about"><!--About section with an id for linking purposes-->
+        <h2>About Us</h2><!--Subheading for the about section-->
+        <p>We recheck the city-shore farmers' in optimizing yield and resources.At Cropwise AI,we deliver tailored solutions to boost dreams and nurture wisdom.  </p><!--A brief description of the company and its mission-->
+        <p>Our team of experts combines agricultural knowledge with cutting-edge AI technology to provide actionable insights for farmers.</p><!--A brief description of the company and its mission-->
+        <img src="assets/images/logo.png" alt="Cropwise Logo"<!--An image of the company logo with an alt text for accessibility-->
+    </section>
+    <! -- 3.Product Carousel -->    
+    <section class="product-carousel"><!--Product carousel section-->
+        <h2>Product Features</h2><!--Subheading for the product carousel-->
+        <div class="carousel-container"><!--Container for the carousel-->
+            <div class="carousel-item"><!--Individual item in the carousel-->
+                <h3> Yield Max</h3>
+                <p> Generates planting recommendation</p>
+                <small>AI algorithms + seasonal trends </small><!--A brief description of the product feature-->
+            </div>
+            <div class="carousel-item">
+                <h3>AquaSense</h3>
+                <p>Monitors soil moisture levels</p>
+                <small>IoT sensors + satellite fusion</small><!--A brief description of the product feature--> 
+            </div>
+            <div class="carousel-item">
+                <h3>PestGuard</h3>
+                <p>Detects pests threats</p>
+                <small>Predictive warnings + mobile app</small><!--A brief description of the product feature-->
+            </div>
+        </div><!--End of carousel container-->   
+    </section><!--End of product carousel section-->
+    <! --Audience Toggle Section --> 
+    <section class="audience-toggle" id="audience"><!--Audience toggle section-->
+        <h2>Who are you?</h2><!--Subheading for the audience toggle section-->
+        <div class="toggle-container"><!--Container for the toggle buttons-->
+            <label class="switch">
+                <input type="checkbox" id="audienceSwitch" checked>
+                <span class="slider"></span>
+            </label>
+            <span id="audiencelabel"> For farmers</span> <!--Label for the toggle switch-->
+            </div><!--End of toggle container-->
+            <div id="farmerContent" class="audience-content"><!--div=a container id="farmerContent" so it can be accessed via JavaScript or CSS  Class="audience-content" for styling-->
+              <p>We help farmers increase yield using AI-driven insights.</p><!--A paragraph describing how Cropwise AI helps farmers-->
+     </div><!--End of farmer content div-->
+  <div id="partnerContent" class="audience-content" style="display:none;"><!--Container for agribusiness partners...it starts hidden (display:none;) so it can be shown later dynamically.-->
+    <p>We partner with agribusinesses to digitize and optimize their value chains.</p><!--A paragraph describing how Cropwise AI helps agribusiness partners-->
+  </div><!--Closes partner content section-->
+    </section>
+
+<!-- 5. FAQ Accordion -->
+    <section class="faq" id="faq"><!-- Starts a SECTION of the page for frequently asked questions...id="faq" for navigation and JavaScript access...class="faq" for CSS styling-->
+        <h2>Frequently Asked Questions</h2><!--Heading for the FAQ section-->
+        <div class="faq-item"><!--Container for on Q&A item-->
+          <button class="faq-question">What crops does Cropwise AI support?</button><!--faq-question a clickable button to later show or hide the answer -->
+          <div class="faq-answer">We currently support maize, tomatoes, beans, and sukuma wiki with region-specific advice.</div><!--faq-answer a div that contains the answer to the question...it will be shown or hidden when the button is clicked-->
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is Cropwise AI free to use?</button>
+          <div class="faq-answer">Yes, we offer a free version for smallholder farmers and affordable plans for agribusinesses.</div>
+         </div>
+  <div class="faq-item">
+    <button class="faq-question">Can I use it without internet?</button>
+    <div class="faq-answer">You need internet to access our services but we’re working on an SMS integration.</div>
+  </div>
+</section>
+
+<!-- 6. Meet the Team -->
+<section class="team" id="team"><!--Satart a team section with its own styles and anchor id-->
+  <h2>Meet the Team</h2><!--Heading for the team section-->
+  <div class="team-grid"><!--A grid container for team member cards-->
+    <div class="team-card">
+      <img src="assets/images/polycarp.jpg" alt="Polycarp">
+      <h3>Polycarp</h3>
+      <p>CO-founder & Product Designer</p>
+    </div><!--A team member card with an image, name as heading, and role in a paragraph-->   
+    <div class="team-card">
+      <img src="assets/images/Nicole photo.jpg" alt="Nicole">
+      <h3>Nicole Kirigi</h3>
+      <p>Lead Agronomist</p>
+    </div>
+    <div class="team-card">
+      <img src="assets/images/Noahs image.jpg" alt="Noah">
+      <h3>Noah Kipkechem</h3>
+      <p>Full-stack developer</p>
+    </div>
+    <div class="team-card">
+      <img src="assets/images/Russel image.jpg" alt="Russel">
+      <h3>Russel Rwara</h3>
+      <p>Product Strategizer</p>
+  </div>
+</section>
+
+<!-- 7. Brand Bar -->
+<section class="brand-bar"><!--A short section displaying the brand's values.-->
+  <div class="brand-values">Innovative</div><!-- Styled text showing a key value...innovative -->
+  <div class="brand-values">Sustainable</div>
+  <div class="brand-values">Efficient</div>
+</section>
+
+<!-- 8. Chatbot Preview -->
+<section class="chatbot" id="chatbot"><!--A section for the AI assistant chatbot-->
+  <h2>AI Assistant</h2><!--Heading for the chatbot section-->
+  <div class="chat-window"><!--fake chat message history-->
+    <div class="chat-bubble user">How can I increase my tomato yield?</div>
+    <div class="chat-bubble ai">Try spacing your plants 45 cm apart and apply phosphorus-rich fertilizer.</div><!-- Simulated chat bubbles :one from a user and one from the AI-->
+  </div><!--End of chat window-->
+  <div class="chat-input">
+    <input type="text" placeholder="Type your message...">
+    <button>Send</button>
+  </div><!--Input field for user to type messages and a send button but not functional needs Java Script input-->
+</section>
+
+<!-- 9. Contact Form -->
+<section class="contact" id="contact"><!--A section for the contact form-->
+  <h2>Contact Us</h2><!--Heading for the contact section-->
+  <form id="contactForm"><!--starts the form element-->
+    <label for="name">Your Name</label>
+    <input type="text" id="name" required><!--label:describes the input field  input:text field that must be filled(required) -->
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" required>
+
+    <label for="message">Your Message</label>
+    <textarea id="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button><!--A button to submit the form-->
+  </form>
+</section>
+
+<!-- 10. Footer -->
+<footer><!--A footer section that contains copyright and links found at the very bottom section of the page-->
+  <div class="footer-left">&copy; 2025 Cropwise AI</div><!--Left side of the footer with copyright information-->
+  <div class="footer-center">👁️ <span id="visitorCount">0</span> visits</div><!-- Center of the footer :eye icon and visitor count,dynamically updatable-->
+  <div class="footer-right">
+    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a href="mailto:support@cropwise.ai">Email</a>
+    <a href="https://linkedin.com/in/polycarp-maina" target="_blank">LinkedIn</a>
+  </div><!--Right side of the footer with links to social media and contact information that opens in new tabs-->
+</footer><!--End of footer section-->
+
+
+
+                
+            
+                 
+                 
+         
