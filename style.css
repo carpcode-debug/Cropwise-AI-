@@ -93,6 +93,17 @@ img {
   overflow-x: auto;
   display: flex;
   gap: 16px;
+  .carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+}
+
+.carousel-item {
+  scroll-snap-align: start;
+}
+
 }
 
 .carousel-item {
@@ -164,6 +175,14 @@ img {
   margin-top: 8px;
   color: #333;
 }
+.faq-answer {
+  display: none;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
 
 /* =====================
    Team Section
@@ -174,13 +193,13 @@ img {
   text-align: center;
 }
 
-.team-member {
+.team-card {
   display: inline-block;
   width: 200px;
   margin: 16px;
 }
 
-.team-member img {
+.team-card img {
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -188,12 +207,12 @@ img {
   margin-bottom: 8px;
 }
 
-.team-member h4 {
+.team-card h4 {
   color: #1B5E20;
   font-size: 18px;
 }
 
-.team-member p {
+.team-card p {
   font-size: 14px;
   color: #555;
 }
@@ -212,35 +231,77 @@ img {
 /* =====================
    Chatbot Section
 ===================== */
-#chatbot {
-  background-color: #F9FBE7;
+.chatbot {
+  background-color: #F1F8E9;
   padding: 40px 20px;
+  text-align: center;
 }
 
 .chat-window {
-  background-color: #fff;
   border: 1px solid #1B5E20;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 16px;
   max-width: 600px;
-  margin: auto;
+  margin: 20px auto;
+  background: white;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
-.chat-message {
-  padding: 10px;
+.chat-bubble {
+  padding: 10px 14px;
+  margin: 10px;
   border-radius: 16px;
-  margin: 8px 0;
+  max-width: 80%;
+  word-wrap: break-word;
 }
 
-.user-msg {
+.chat-bubble.user {
   background-color: #DCF8C6;
+  align-self: flex-end;
   text-align: right;
 }
 
-.ai-msg {
-  background-color: #fff;
+.chat-bubble.ai {
+  background-color: #FFFFFF;
   border: 1px solid #1B5E20;
   text-align: left;
+}
+
+.chat-input {
+  margin-top: 20px;
+}
+
+.chat-input input {
+  padding: 10px;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.chat-input button {
+  padding: 10px 16px;
+  background-color: #1B5E20;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.sample-questions {
+  margin-top: 20px;
+}
+
+.sample-questions button {
+  margin: 5px;
+  background: #E8F5E9;
+  border: 1px solid #1B5E20;
+  border-radius: 12px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
 }
 
 /* =====================
@@ -289,4 +350,58 @@ footer {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+}
+@media (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .chat-input input {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .chat-input input {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
 }

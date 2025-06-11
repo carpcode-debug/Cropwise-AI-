@@ -1,12 +1,22 @@
 <!DOCTYPE html>    <!--declares this is an HTML5 document-->
 <html lang="en"> <!--declares the language of the document is English-->
 <head><!--All things that happen in the background where the user can't see but helps the website-->
+    <script src="https://js.puter.com/v2/"></script>
+
     <meta charset="UTF-8"> <!--supports all characters including emoji and symbols-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--makes the site responsive on mobile devices-->
     <title>Cropwise AI Site</title> <!--sets the tab title of the document on the browser-->
     <link rel="stylesheet" href="style.css"> <!--links to my external CSS file-->
     <script src="script.js" defer></script> <!--links to my external JavaScript file, defer ensures it loads after the HTML is analyzed by the browser-->
     <link rel="icon" href="favicon.icon" type="image/x-icon"> <!--links to the favicon for the site .It is a small icon in the browser tab-->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#faq">FAQs</a>
+        <a href="#team">Team</a>
+        <a href="#chatbot">Chatbot</a>
+        <a href="#contact">Contact</a>
+    </nav><!--A navigation bar with links to different sections of the page. Each link has an anchor tag that points to a specific section using its id attribute.-->
+
 </head>
 <body><!--All things that the user can see and interact with and where all the content goes into-->
     <! -- 1.Hero section -->
@@ -14,13 +24,16 @@
         <h1>Welcome to Cropwise AI</h1><!--Main heading of the site-->
         <p>Empowering farmers through intelligent insights.</p><!--A tagline that quickly communicatesthe mission-->
         <a href ="about" class="cta-button">Get started</a>
+        <label for="themeToggle" style="margin-left: 1rem;">
+          <input type="checkbox" id="themeToggle"> Dark Mode
+        </label>
     </header>    
     <! -- 2.About section -->
     <section id="about"class="about"><!--About section with an id for linking purposes-->
         <h2>About Us</h2><!--Subheading for the about section-->
         <p>We recheck the city-shore farmers' in optimizing yield and resources.At Cropwise AI,we deliver tailored solutions to boost dreams and nurture wisdom.  </p><!--A brief description of the company and its mission-->
         <p>Our team of experts combines agricultural knowledge with cutting-edge AI technology to provide actionable insights for farmers.</p><!--A brief description of the company and its mission-->
-        <img src="assets/images/logo.png" alt="Cropwise Logo"<!--An image of the company logo with an alt text for accessibility-->
+        <img src="assets/images/logo.png" alt="Cropwise Logo"><!--An image of the company logo with an alt text for accessibility-->
     </section>
     <! -- 3.Product Carousel -->    
     <section class="product-carousel"><!--Product carousel section-->
@@ -83,22 +96,22 @@
   <h2>Meet the Team</h2><!--Heading for the team section-->
   <div class="team-grid"><!--A grid container for team member cards-->
     <div class="team-card">
-      <img src="assets/images/Polycarp photo.jpg" alt="Polycarp">
+      <img src="CROPWISE_AI_SITE/images/Polycarp.jpg" alt="Polycarp">
       <h3>Polycarp</h3>
       <p>CO-founder & Product Designer</p>
     </div><!--A team member card with an image, name as heading, and role in a paragraph-->   
     <div class="team-card">
-      <img src="assets/images/Nicolephoto.jpg" alt="Nicole">
+      <img src="assets/images/Nicole.jpg" alt="Nicole">
       <h3>Nicole Kirigi</h3>
       <p>Lead Agronomist</p>
     </div>
     <div class="team-card">
-      <img src="assets/images/Noahphoto.jpg" alt="Noah">
+      <img src="assets/images/Noah.jpg" alt="Noah">
       <h3>Noah Kipkechem</h3>
       <p>Full-stack developer</p>
     </div>
     <div class="team-card">
-      <img src="assets/images/Russelphoto.jpg" alt="Russel">
+      <img src="assets/images/Russel.jpg" alt="Russel">
       <h3>Russel Rwara</h3>
       <p>Product Strategizer</p>
   </div>
@@ -112,17 +125,30 @@
 </section>
 
 <!-- 8. Chatbot Preview -->
-<section class="chatbot" id="chatbot"><!--A section for the AI assistant chatbot-->
-  <h2>AI Assistant</h2><!--Heading for the chatbot section-->
-  <div class="chat-window"><!--fake chat message history-->
+<section id="chatbot" class="chatbot">
+  <h2>AI Assistant</h2>
+  <p class="instructions">Ask our AI about our story, services, or how you can get involved.</p>
+
+  <div class="chat-window" id="chat-window">
     <div class="chat-bubble user">How can I increase my tomato yield?</div>
-    <div class="chat-bubble ai">Try spacing your plants 45 cm apart and apply phosphorus-rich fertilizer.</div><!-- Simulated chat bubbles :one from a user and one from the AI-->
-  </div><!--End of chat window-->
+    <div class="chat-bubble ai">Try spacing your plants 45 cm apart and apply phosphorus-rich fertilizer.</div>
+  </div>
+
   <div class="chat-input">
-    <input type="text" placeholder="Type your message...">
-    <button>Send</button>
-  </div><!--Input field for user to type messages and a send button but not functional needs Java Script input-->
+    <input type="text" id="chat-input" placeholder="Type your question..." />
+    <button id="send-btn">Send</button>
+  </div>
+
+  <div class="sample-questions">
+    <p>Try asking:</p>
+    <button class="sample">Who founded Cropwise AI?</button>
+    <button class="sample">What problems does Cropwise solve?</button>
+    <button class="sample">What services do you offer?</button>
+    <button class="sample">How can I contact your team?</button>
+    <button class="sample">What’s your long-term goal?</button>
+  </div>
 </section>
+
 
 <!-- 9. Contact Form -->
 <section class="contact" id="contact"><!--A section for the contact form-->

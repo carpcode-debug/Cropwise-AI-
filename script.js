@@ -1,7 +1,7 @@
 // script.js - Cropwise AI Interactive Features
 
 // 1. Toggle Switch for Audience
-const toggleSwitch = document.getElementById("audienceToggle");
+const toggleSwitch = document.getElementById("audienceSwitch"); 
 const studentContent = document.getElementById("studentContent");
 const mentorContent = document.getElementById("mentorContent");
 
@@ -19,13 +19,14 @@ toggleSwitch.addEventListener("change", () => {
 const faqItems = document.querySelectorAll(".faq-item");
 
 faqItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    // Close all other items
+  item.querySelector(".faq-question").addEventListener("click", () => {
     faqItems.forEach((el) => {
-      if (el !== item) {
-        el.classList.remove("active");
-      }
+      if (el !== item) el.classList.remove("active");
     });
+    item.classList.toggle("active");
+  });
+});
+
 
     // Toggle current item
     item.classList.toggle("active");
@@ -59,7 +60,7 @@ form.addEventListener("submit", function (e) {
 });
 
 // 4. Visitor Counter with localStorage
-const visitCounter = document.getElementById("visitorCounter");
+const visitCounter = document.getElementById("visitorCount");
 let visits = localStorage.getItem("cropwise_visits");
 
 if (!visits) {
@@ -98,3 +99,57 @@ if (themeToggle) {
     localStorage.setItem("cropwise_theme", newTheme);
   });
 }
+const context = `Cropwise AI is a Kenyan agritech startup founded by Polycarp Maina, a Financial Engineering student passionate about combining technology with sustainable farming. Our mission is to empower farmers and agribusinesses in Africa with AI-driven tools to optimize crop yield, manage resources efficiently, and reduce waste. We offer products like YieldMax, AquaSense, and PestGuard that use satellite data, IoT sensors, and predictive analytics to provide real-time, localized insights. Our team includes Polycarp Maina (Founder & Product Designer), Nicole Kirigi (Lead Agronomist), Noah Kipkechem (Full-Stack Developer), and Russel Rwara (Product Strategizer). Support us by sharing our vision, giving feedback, or reaching out via email at support@cropwise.ai. Our long-term goal is to revolutionize farming across Africa using ethical, accessible AI.`;
+
+const input = document.getElementById("chat-input");
+const sendBtn = document.getElementById("send-btn");
+const chatWindow = document.getElementById("chat-window");
+const sampleBtns = document.querySelectorAll(".sample");
+
+function appendBubble(message, className) {
+  const bubble = document.createElement("div");
+  bubble.className = `chat-bubble ${className}`;
+  bubble.textContent = message;
+  chatWindow.appendChild(bubble);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+async function sendMessage() {
+  const question = input.value.trim();
+  if (!question) {
+    alert("Please enter a question.");
+    return;
+  }
+
+  appendBubble(question, "user");
+  input.value = "";
+  appendBubble("...", "ai");
+
+  try {
+    const reply = await puter.ai.chat({
+      messages: [
+        { role: "system", content: context },
+        { role: "user", content: question }
+      ]
+    });
+
+    const lastBubble = document.querySelector(".ai:last-child");
+    lastBubble.textContent = reply.choices[0].message.content;
+  } catch (err) {
+    alert("Sorry, the AI could not respond.");
+    const lastBubble = document.querySelector(".ai:last-child");
+    lastBubble.textContent = "Oops! Something went wrong.";
+  }
+}
+
+sendBtn.addEventListener("click", sendMessage);
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
+});
+
+sampleBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    input.value = btn.textContent;
+    sendMessage();
+  });
+});
